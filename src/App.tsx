@@ -10,9 +10,9 @@ function App() {
     <div className="min-h-screen bg-[#eae6e3]">
       <Header />
       <Hero />
+      <WaitlistForm />
       <Features />
       <PainPoints />
-      <WaitlistForm />
       <Footer />
     </div>
   );
