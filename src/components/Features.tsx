@@ -6,28 +6,28 @@ const features = [
     title: 'No More Jargon',
     description: 'We translate complex market terms into everyday language you actually understand. No finance degree required.',
     color: 'bg-[#457B9D]',
-    bgGradient: 'from-[#457B9D]/10 to-white'
+    bg: 'bg-[#eae6e3]'
   },
   {
     icon: Heart,
     title: 'Emotional Support',
     description: 'Investing can feel overwhelming. We provide the reassurance and guidance you need to stay confident through market ups and downs.',
     color: 'bg-[#87ae73]',
-    bgGradient: 'from-[#87ae73]/10 to-white'
+    bg: 'bg-[#eae6e3]'
   },
   {
     icon: Brain,
     title: 'Learn How to Think',
     description: 'Instead of just telling you what to buy, we teach you how to analyze and make informed decisions on your own.',
     color: 'bg-[#f4e98c]',
-    bgGradient: 'from-[#f4e98c]/20 to-white'
+    bg: 'bg-[#eae6e3]'
   },
   {
     icon: Sparkles,
     title: 'Built for Beginners',
     description: 'Whether you\'re 18 or 80, starting your investment journey has never been more accessible and empowering.',
-    color: 'bg-gradient-to-br from-[#457B9D] to-[#87ae73]',
-    bgGradient: 'from-[#eae6e3] to-white'
+    color: 'bg-[#457B9D]',
+    bg: 'bg-[#eae6e3]'
   }
 ];
 
@@ -50,7 +50,7 @@ export function Features() {
             return (
               <div
                 key={index}
-                className={`group p-8 rounded-2xl bg-gradient-to-br ${feature.bgGradient} border-2 border-gray-200 hover:border-[#457B9D] hover:shadow-xl transition-all duration-300`}
+                className={`group p-8 rounded-2xl ${feature.bg} border-2 border-gray-200 hover:border-[#457B9D] hover:shadow-xl transition-all duration-300`}
               >
                 <div className={`w-16 h-16 rounded-xl ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   <Icon className={`w-8 h-8 ${index === 2 ? 'text-gray-800' : 'text-white'}`} />

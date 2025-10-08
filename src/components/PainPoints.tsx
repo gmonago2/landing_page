@@ -5,14 +5,14 @@ const painPoints = [
     icon: HelpCircle,
     problem: 'What does P/E ratio even mean?',
     solution: 'We break it down: it\'s just comparing a stock\'s price to how much money the company makes. Simple.',
-    iconBg: 'bg-gradient-to-br from-[#f4e98c] to-[#87ae73]',
+    iconBg: 'bg-[#f4e98c]',
     iconColor: 'text-gray-800'
   },
   {
     icon: AlertCircle,
     problem: 'Everyone says different things',
     solution: 'We teach you principles, not predictions—so you can filter noise and make your own choices.',
-    iconBg: 'bg-gradient-to-br from-[#457B9D] to-[#87ae73]',
+    iconBg: 'bg-[#457B9D]',
     iconColor: 'text-white'
   },
   {
@@ -26,15 +26,13 @@ const painPoints = [
 
 export function PainPoints() {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#457B9D]/10 via-[#f4e98c]/5 to-[#87ae73]/10 relative overflow-hidden">
+    <section className="py-24 bg-[#eae6e3] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#87ae73]/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#457B9D]/5 rounded-full blur-3xl"></div>
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-[#457B9D] via-[#87ae73] to-[#457B9D] bg-clip-text text-transparent">
-              Sound Familiar?
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#457B9D]">
+            Sound Familiar?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             These are the real struggles new investors face. Here's how we solve them.

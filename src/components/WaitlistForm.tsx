@@ -44,13 +44,13 @@ export function WaitlistForm() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#457B9D] to-[#87ae73]">
+    <section className="py-24 bg-[#eae6e3]">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center text-white mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Ready to Invest with Confidence?
           </h2>
-          <p className="text-xl text-white/90">
+          <p className="text-xl text-gray-700">
             Join our waitlist and be the first to experience stress-free investing.
           </p>
         </div>
