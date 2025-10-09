@@ -44,18 +44,18 @@ export function WaitlistForm() {
   };
 
   return (
-    <section className="py-24 bg-[#eae6e3]">
+    <section className="py-24 bg-[#87ae73]">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Ready to Invest with Confidence?
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            Ready to Make Your Move?
           </h2>
-          <p className="text-xl text-gray-700">
-            Join our waitlist and be the first to experience stress-free investing.
+          <p className="text-xl text-white/90">
+            Get early access when we launch. No BS, just real investing education.
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl">
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border-4 border-[#457B9D]">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
               <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
@@ -97,7 +97,7 @@ export function WaitlistForm() {
           </form>
 
           <p className="text-center text-gray-500 text-sm mt-6">
-            No spam, ever. We respect your inbox as much as we respect your investment journey.
+            Zero spam. We only send the good stuff. Promise. ✌️
           </p>
         </div>
       </div>

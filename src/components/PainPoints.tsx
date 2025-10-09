@@ -3,39 +3,47 @@ import { AlertCircle, HelpCircle, Frown } from 'lucide-react';
 const painPoints = [
   {
     icon: HelpCircle,
-    problem: 'What does P/E ratio even mean?',
-    solution: 'We break it down: it\'s just comparing a stock\'s price to how much money the company makes. Simple.',
+    problem: '"Wait, what even is a stock?"',
+    solution: 'We start from the absolute basics. No assumptions, no fancy words—just real talk about how this stuff works.',
     iconBg: 'bg-[#f4e98c]',
-    iconColor: 'text-gray-800'
+    iconColor: 'text-gray-800',
+    cardBg: 'bg-white',
+    borderColor: 'border-[#f4e98c]'
   },
   {
     icon: AlertCircle,
-    problem: 'Everyone says different things',
-    solution: 'We teach you principles, not predictions—so you can filter noise and make your own choices.',
+    problem: '"Everyone has different advice..."',
+    solution: 'Forget the noise. We teach you the fundamentals so you can make choices that feel right for YOU.',
     iconBg: 'bg-[#457B9D]',
-    iconColor: 'text-white'
+    iconColor: 'text-white',
+    cardBg: 'bg-white',
+    borderColor: 'border-[#457B9D]'
   },
   {
     icon: Frown,
-    problem: 'I\'m scared I\'ll lose everything',
-    solution: 'We help you understand risk, set realistic expectations, and invest with confidence instead of fear.',
+    problem: '"What if I mess up and lose money?"',
+    solution: 'Real talk: risk exists. But we\'ll help you understand it, manage it, and invest in a way that lets you sleep at night.',
     iconBg: 'bg-[#87ae73]',
-    iconColor: 'text-white'
+    iconColor: 'text-white',
+    cardBg: 'bg-white',
+    borderColor: 'border-[#87ae73]'
   }
 ];
 
 export function PainPoints() {
   return (
-    <section className="py-24 bg-[#eae6e3] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#87ae73]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#457B9D]/5 rounded-full blur-3xl"></div>
+    <section className="py-24 bg-[#457B9D] relative overflow-hidden">
+      <div className="absolute top-10 left-10 w-40 h-40 bg-[#87ae73] rounded-full opacity-20"></div>
+      <div className="absolute bottom-10 right-10 w-60 h-60 bg-[#f4e98c] rounded-full opacity-20"></div>
+      <div className="absolute top-1/2 right-20 w-32 h-32 bg-white rounded-2xl opacity-10 rotate-45"></div>
+
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#457B9D]">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
             Sound Familiar?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            These are the real struggles new investors face. Here's how we solve them.
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            These are real thoughts from real people. Here's how we help.
           </p>
         </div>
 
@@ -45,30 +53,30 @@ export function PainPoints() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-[#457B9D]/30"
+                className={`${point.cardBg} rounded-3xl p-8 shadow-xl border-4 ${point.borderColor} hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}
               >
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
                   <div className="flex-shrink-0">
-                    <div className={`w-20 h-20 rounded-full ${point.iconBg} flex items-center justify-center shadow-lg`}>
-                      <Icon className={`w-10 h-10 ${point.iconColor}`} />
+                    <div className={`w-24 h-24 rounded-2xl ${point.iconBg} flex items-center justify-center shadow-lg`}>
+                      <Icon className={`w-12 h-12 ${point.iconColor}`} />
                     </div>
                   </div>
                   <div className="flex-grow">
                     <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                       <div className="flex-1">
-                        <div className="text-sm font-bold text-[#457B9D] uppercase tracking-wide mb-2">
-                          The Problem
+                        <div className="text-xs font-black text-gray-500 uppercase tracking-wider mb-2">
+                          You Might Be Thinking
                         </div>
-                        <p className="text-lg font-semibold text-gray-900">
-                          "{point.problem}"
+                        <p className="text-xl font-bold text-gray-900 mb-2">
+                          {point.problem}
                         </p>
                       </div>
-                      <div className="hidden md:block w-1 h-16 bg-gradient-to-b from-[#457B9D] to-[#87ae73] rounded-full"></div>
+                      <div className="hidden md:block w-1 h-20 bg-[#87ae73] rounded-full"></div>
                       <div className="flex-1">
-                        <div className="text-sm font-bold text-[#87ae73] uppercase tracking-wide mb-2">
-                          Our Solution
+                        <div className="text-xs font-black text-[#87ae73] uppercase tracking-wider mb-2">
+                          Here's The Deal
                         </div>
-                        <p className="text-gray-700 font-medium">
+                        <p className="text-gray-800 font-medium text-lg">
                           {point.solution}
                         </p>
                       </div>

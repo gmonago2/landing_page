@@ -3,44 +3,48 @@ import { BookOpen, Heart, Brain, Sparkles } from 'lucide-react';
 const features = [
   {
     icon: BookOpen,
-    title: 'No More Jargon',
-    description: 'We translate complex market terms into everyday language you actually understand. No finance degree required.',
+    title: 'Bite-Sized Lessons',
+    description: 'Learn investing in 5-minute chunks. No overwhelming textbooks or boring lectures—just quick, easy explanations.',
     color: 'bg-[#457B9D]',
-    bg: 'bg-[#eae6e3]'
+    bgColor: 'bg-[#457B9D]/5',
+    borderColor: 'border-[#457B9D]'
   },
   {
     icon: Heart,
-    title: 'Emotional Support',
-    description: 'Investing can feel overwhelming. We provide the reassurance and guidance you need to stay confident through market ups and downs.',
+    title: 'Zero Judgment Zone',
+    description: 'Ask anything. We get it—everyone starts somewhere. No question is too basic, no confusion too simple.',
     color: 'bg-[#87ae73]',
-    bg: 'bg-[#eae6e3]'
+    bgColor: 'bg-[#87ae73]/5',
+    borderColor: 'border-[#87ae73]'
   },
   {
     icon: Brain,
-    title: 'Learn How to Think',
-    description: 'Instead of just telling you what to buy, we teach you how to analyze and make informed decisions on your own.',
+    title: 'Build Your Confidence',
+    description: 'Learn to trust your own decisions. We teach you how to think like an investor, not just follow hot tips.',
     color: 'bg-[#f4e98c]',
-    bg: 'bg-[#eae6e3]'
+    bgColor: 'bg-[#f4e98c]/20',
+    borderColor: 'border-[#f4e98c]'
   },
   {
     icon: Sparkles,
-    title: 'Built for Beginners',
-    description: 'Whether you\'re 18 or 80, starting your investment journey has never been more accessible and empowering.',
+    title: 'Start Small, Dream Big',
+    description: 'You don\'t need thousands to start. We\'ll show you how to begin with whatever you have right now.',
     color: 'bg-[#457B9D]',
-    bg: 'bg-[#eae6e3]'
+    bgColor: 'bg-white',
+    borderColor: 'border-[#87ae73]'
   }
 ];
 
 export function Features() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-[#eae6e3]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Investing Feels So Hard
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+            Why First Shares?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            The stock market is full of confusing terms, conflicting advice, and fear. We're here to change that.
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            We built this for people like you—curious, ready to learn, but tired of feeling lost.
           </p>
         </div>
 
@@ -50,15 +54,15 @@ export function Features() {
             return (
               <div
                 key={index}
-                className={`group p-8 rounded-2xl ${feature.bg} border-2 border-gray-200 hover:border-[#457B9D] hover:shadow-xl transition-all duration-300`}
+                className={`group p-8 rounded-2xl ${feature.bgColor} border-4 ${feature.borderColor} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
               >
-                <div className={`w-16 h-16 rounded-xl ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
-                  <Icon className={`w-8 h-8 ${index === 2 ? 'text-gray-800' : 'text-white'}`} />
+                <div className={`w-20 h-20 rounded-2xl ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                  <Icon className={`w-10 h-10 ${index === 2 ? 'text-gray-800' : 'text-white'}`} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </div>
