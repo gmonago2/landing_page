@@ -2,23 +2,22 @@ import { TrendingUp } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-32 overflow-hidden bg-[#eae6e3]">
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#87ae73]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#457B9D]/10 rounded-full blur-3xl"></div>
+    <section className="relative pt-24 pb-28 overflow-hidden bg-sand">
+      <div className="absolute top-16 left-8 w-64 h-64 bg-mint/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-16 right-8 w-80 h-80 bg-brand/10 rounded-full blur-3xl"></div>
 
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Stocks, Explained in<br />
-            <span className="text-[#457B9D]">Plain English</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
+            Money Moves, Made Simple
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-            We make the stock market beginner-friendly by stripping away confusing jargon and providing emotional support for new investors.
+          <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-3xl mx-auto leading-relaxed">
+            Bite-sized investing tips and friendly explainers for people 18–35. No jargon, just the stuff that helps you start — and keep going.
           </p>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-            Instead of telling you what to buy, we teach you how to think—so you can approach investing with clarity, calm, and confidence, no matter your age or background.
+          <p className="text-base text-gray-600 max-w-2xl mx-auto mb-10">
+            Learn in minutes. Build confidence. Take small, low-pressure steps that grow into smart money habits.
           </p>
         </div>
       </div>

@@ -4,15 +4,15 @@ const painPoints = [
   {
     icon: HelpCircle,
     problem: 'What does P/E ratio even mean?',
-    solution: 'We break it down: it\'s just comparing a stock\'s price to how much money the company makes. Simple.',
-    iconBg: 'bg-[#f4e98c]',
+    solution: 'Short explainer: it compares price to earnings — we show what it actually tells you, in plain terms.',
+    iconBg: 'bg-gold',
     iconColor: 'text-gray-800'
   },
   {
     icon: AlertCircle,
-    problem: 'Everyone says different things',
-    solution: 'We teach you principles, not predictions—so you can filter noise and make your own choices.',
-    iconBg: 'bg-[#457B9D]',
+    problem: 'So much conflicting advice',
+    solution: 'We teach principles, not hot takes — so you can make choices that fit your life and goals.',
+    iconBg: 'bg-brand',
     iconColor: 'text-white'
   },
   {
@@ -26,9 +26,9 @@ const painPoints = [
 
 export function PainPoints() {
   return (
-    <section className="py-24 bg-[#eae6e3] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#87ae73]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#457B9D]/5 rounded-full blur-3xl"></div>
+    <section className="py-20 bg-sand relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-72 h-72 bg-mint/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand/10 rounded-full blur-3xl"></div>
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#457B9D]">
@@ -63,7 +63,7 @@ export function PainPoints() {
                           "{point.problem}"
                         </p>
                       </div>
-                      <div className="hidden md:block w-1 h-16 bg-gradient-to-b from-[#457B9D] to-[#87ae73] rounded-full"></div>
+                      <div className="hidden md:block w-1 h-16 bg-brand rounded-full" />
                       <div className="flex-1">
                         <div className="text-sm font-bold text-[#87ae73] uppercase tracking-wide mb-2">
                           Our Solution

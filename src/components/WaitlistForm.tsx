@@ -44,14 +44,14 @@ export function WaitlistForm() {
   };
 
   return (
-    <section className="py-24 bg-[#eae6e3]">
+  <section className="py-20 bg-sand">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Ready to Invest with Confidence?
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
+            Join the "Money Moves" waitlist
           </h2>
-          <p className="text-xl text-gray-700">
-            Join our waitlist and be the first to experience stress-free investing.
+          <p className="text-base text-gray-700">
+            Bite-sized investing lessons, friendly nudges, and real steps to help your money work for you.
           </p>
         </div>
 
@@ -74,10 +74,10 @@ export function WaitlistForm() {
 
             {message && (
               <div className={`flex items-start gap-3 p-4 rounded-xl ${
-                status === 'success'
-                  ? 'bg-[#87ae73]/10 text-[#87ae73]'
-                  : 'bg-red-50 text-red-600'
-              }`}>
+                  status === 'success'
+                    ? 'bg-mint/10 text-mint'
+                    : 'bg-red-50 text-red-600'
+                }`}>
                 {status === 'success' ? (
                   <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 ) : (
@@ -90,9 +90,9 @@ export function WaitlistForm() {
             <button
               type="submit"
               disabled={status === 'loading' || status === 'success'}
-              className="w-full py-4 px-8 bg-[#457B9D] hover:bg-[#457B9D]/90 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none text-lg"
+              className="w-full py-3 px-6 bg-brand hover:bg-brand/90 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow hover:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-base"
             >
-              {status === 'loading' ? 'Joining...' : status === 'success' ? 'You\'re on the list!' : 'Join the Waitlist'}
+              {status === 'loading' ? 'Joining...' : status === 'success' ? 'Welcome aboard 🎉' : "Get early access"}
             </button>
           </form>
 
