@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
+// Configure the two target tables via environment variables so both landing pages
+// can write into the same Supabase database but different tables.
+const WAITLIST_TABLE_A = import.meta.env.VITE_WAITLIST_TABLE || 'waitlist';
+const WAITLIST_TABLE_B = import.meta.env.VITE_WAITLIST_V2_TABLE || 'waitlist_v2';
+
 export function WaitlistForm() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -20,22 +25,46 @@ export function WaitlistForm() {
     setMessage('');
 
     try {
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([{ email: email.toLowerCase().trim() }]);
+      const payload = { email: email.toLowerCase().trim() };
 
-      if (error) {
-        if (error.code === '23505') {
-          setStatus('error');
-          setMessage("You're already on the waitlist!");
-        } else {
-          throw error;
-        }
-      } else {
-        setStatus('success');
-        setMessage('Welcome aboard! We\'ll be in touch soon.');
-        setEmail('');
+      // Insert into both tables in parallel. We treat unique-constraint (already exists)
+      // specially so a duplicate in one table doesn't hide success in the other.
+      const [resA, resB] = await Promise.all([
+        supabase.from(WAITLIST_TABLE_A).insert([payload]),
+        supabase.from(WAITLIST_TABLE_B).insert([payload])
+      ]);
+
+      const errA = (resA as any).error;
+      const errB = (resB as any).error;
+
+      // Helper to check unique violation (Postgres 23505)
+      const isUniqueErr = (e: any) => e && (e.code === '23505' || e.status === 409);
+
+      if ((errA && !isUniqueErr(errA)) || (errB && !isUniqueErr(errB))) {
+        // One of the inserts failed for a reason other than duplicate
+        console.error('Waitlist insert errors:', { errA, errB });
+        setStatus('error');
+        setMessage('Something went wrong. Please try again.');
+        return;
       }
+
+      // If at least one insert succeeded, treat as success.
+      const succeededA = !errA || isUniqueErr(errA) === false;
+      const succeededB = !errB || isUniqueErr(errB) === false;
+
+      if ((errA && isUniqueErr(errA)) && (errB && isUniqueErr(errB))) {
+        setStatus('error');
+        setMessage("You're already on both waitlists!");
+        return;
+      }
+
+      // If here, at least one insert succeeded (or both succeeded)
+      setStatus('success');
+      setMessage("You're on the list! We'll be in touch soon.");
+      setEmail('');
+
+      // Log outcomes for diagnostic purposes
+      console.log('Waitlist inserts:', { tableA: WAITLIST_TABLE_A, resA, tableB: WAITLIST_TABLE_B, resB });
     } catch (error) {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');
