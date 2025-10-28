@@ -1,0 +1,112 @@
+[
+  {
+    "id": "daily_quiz_terms",
+    "title": "Daily Quiz — Term Definitions",
+    "description": "Answer 5 short definition questions drawn from core investing terms.",
+    "frequency": "daily",
+    "durationMin": 7,
+    "reward": { "xp": 20, "badge": null },
+    "requirements": { "questions": 5, "passPercent": 60 },
+    "audience": "beginner",
+    "ui": { "type": "quiz", "entryPoint": "/missions/quiz/daily-terms" },
+    "analyticsName": "mission_daily_quiz_terms"
+  },
+  {
+    "id": "daily_flashcard_review",
+    "title": "Flashcard Review",
+    "description": "Review 10 flashcards (short front/back cards) to reinforce common terms.",
+    "frequency": "daily",
+    "durationMin": 5,
+    "reward": { "xp": 10, "badge": null },
+    "requirements": { "cards": 10 },
+    "audience": "beginner",
+    "ui": { "type": "flashcards", "entryPoint": "/flashcards" },
+    "analyticsName": "mission_daily_flashcard_review"
+  },
+  {
+    "id": "daily_read_tip",
+    "title": "Read a Short Tip",
+    "description": "Read one plain-English tip or article (approx. 300-500 words) about a basic investing concept.",
+    "frequency": "daily",
+    "durationMin": 5,
+    "reward": { "xp": 8, "badge": null },
+    "requirements": { "wordsMin": 300 },
+    "audience": "beginner",
+    "ui": { "type": "article", "entryPoint": "/tips" },
+    "analyticsName": "mission_daily_read_tip"
+  },
+  {
+    "id": "daily_watch_short",
+    "title": "Watch a Short Explainer",
+    "description": "Watch a 2–3 minute explainer video and answer one quick question about it.",
+    "frequency": "daily",
+    "durationMin": 3,
+    "reward": { "xp": 6, "badge": null },
+    "requirements": { "watchMinutes": 2, "quizQuestions": 1 },
+    "audience": "beginner",
+    "ui": { "type": "video", "entryPoint": "/videos" },
+    "analyticsName": "mission_daily_watch_short"
+  },
+  {
+    "id": "daily_journal",
+    "title": "Daily Reflection",
+    "description": "Write a 1–2 sentence reflection about what you learned today.",
+    "frequency": "daily",
+    "durationMin": 2,
+    "reward": { "xp": 4, "badge": null },
+    "requirements": { "minChars": 20 },
+    "audience": "beginner",
+    "ui": { "type": "journal", "entryPoint": "/journal" },
+    "analyticsName": "mission_daily_journal"
+  },
+
+  {
+    "id": "weekly_quiz_synthesis",
+    "title": "Weekly Quiz — Synthesis",
+    "description": "A 10-question mixed quiz that reviews the week's key concepts. Pass to earn a weekly badge.",
+    "frequency": "weekly",
+    "durationMin": 20,
+    "reward": { "xp": 100, "badge": "weekly_master" },
+    "requirements": { "questions": 10, "passPercent": 70 },
+    "audience": "beginner",
+    "ui": { "type": "quiz", "entryPoint": "/missions/quiz/weekly" },
+    "analyticsName": "mission_weekly_quiz_synthesis"
+  },
+  {
+    "id": "weekly_social_post",
+    "title": "Weekly: Share an Insight",
+    "description": "Post a short insight or takeaway to the community feed (use the provided template to keep it simple).",
+    "frequency": "weekly",
+    "durationMin": 10,
+    "reward": { "xp": 50, "badge": "sharer" },
+    "requirements": { "minChars": 20 },
+    "audience": "beginner",
+    "ui": { "type": "social", "entryPoint": "/missions/compose-share" },
+    "analyticsName": "mission_weekly_social_post"
+  },
+  {
+    "id": "weekly_rebalance_check",
+    "title": "Weekly: Rebalance Check",
+    "description": "Review your allocation and note one small adjustment or confirm that your allocation is fine.",
+    "frequency": "weekly",
+    "durationMin": 10,
+    "reward": { "xp": 40, "badge": null },
+    "requirements": { "reviewed": true },
+    "audience": "beginner",
+    "ui": { "type": "portfolio", "entryPoint": "/portfolio" },
+    "analyticsName": "mission_weekly_rebalance_check"
+  },
+  {
+    "id": "evergreen_invite_friend",
+    "title": "Invite a Friend",
+    "description": "Invite one friend to try the app. This is an evergreen mission — credited only once per friend invite.",
+    "frequency": "evergreen",
+    "oneTime": true,
+    "durationMin": 5,
+    "reward": { "xp": 30, "badge": "connector" },
+    "requirements": { "invitesRequired": 1 },
+    "audience": "beginner",
+    "ui": { "type": "invite", "entryPoint": "/invite" },
+    "analyticsName": "mission_evergreen_invite_friend"
+  }
+]
