@@ -33,10 +33,6 @@ const painPoints = [
 export function PainPoints() {
   return (
     <section className="py-24 bg-[#457B9D] relative overflow-hidden">
-      <div className="absolute top-10 left-10 w-40 h-40 bg-[#87ae73] rounded-full opacity-20"></div>
-      <div className="absolute bottom-10 right-10 w-60 h-60 bg-[#f4e98c] rounded-full opacity-20"></div>
-      <div className="absolute top-1/2 right-20 w-32 h-32 bg-white rounded-2xl opacity-10 rotate-45"></div>
-
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
