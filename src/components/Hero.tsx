@@ -1,12 +1,6 @@
-import { TrendingUp } from 'lucide-react';
-
 export function Hero() {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-[#f4e98c]">
-      <div className="absolute top-10 right-20 w-32 h-32 bg-[#87ae73] rounded-3xl rotate-12"></div>
-      <div className="absolute bottom-10 left-20 w-40 h-40 bg-[#457B9D] rounded-full"></div>
-      <div className="absolute top-40 left-40 w-20 h-20 bg-white rounded-2xl -rotate-12"></div>
-
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
           <div className="inline-block bg-[#457B9D] text-white px-6 py-2 rounded-full text-sm font-bold mb-6 shadow-lg">
