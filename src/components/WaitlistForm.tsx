@@ -44,7 +44,7 @@ export function WaitlistForm() {
   };
 
   return (
-    <section className="py-24 bg-[#87ae73]">
+    <section id="waitlist" tabIndex={-1} className="py-24 bg-[#87ae73]">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
