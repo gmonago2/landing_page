@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+// Supabase removed: form now posts to our local API
 
 export function WaitlistForm() {
   const [email, setEmail] = useState('');
@@ -20,21 +20,22 @@ export function WaitlistForm() {
     setMessage('');
 
     try {
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([{ email: email.toLowerCase().trim() }]);
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.toLowerCase().trim() })
+      });
 
-      if (error) {
-        if (error.code === '23505') {
-          setStatus('error');
-          setMessage("You're already on the waitlist!");
-        } else {
-          throw error;
-        }
-      } else {
+      if (res.ok) {
         setStatus('success');
         setMessage('Welcome aboard! We\'ll be in touch soon.');
         setEmail('');
+      } else if (res.status === 409) {
+        setStatus('error');
+        setMessage("You're already on the waitlist!");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || `Request failed (${res.status})`);
       }
     } catch (error) {
       setStatus('error');

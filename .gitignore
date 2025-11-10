@@ -21,3 +21,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+waitlist.sqlite
+src/server/waitlist.sqlite
+waitlist.json
