@@ -18,9 +18,9 @@ export function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-[#f4e98c]">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-white">
       {/* Combined decorative block: blends yellow (hero bg), green, and white into a single gradient shape */}
-      <div className="absolute -top-8 right-8 w-64 h-64 rounded-3xl rotate-12 bg-gradient-to-br from-[#f4e98c] via-[#87ae73] to-white opacity-95 shadow-xl"></div>
+      <div className="absolute -top-8 right-8 w-64 h-64 rounded-3xl rotate-12 bg-gradient-to-br from-white via-[#87ae73] to-white opacity-95 shadow-xl"></div>
       <div className="absolute bottom-10 left-20 w-40 h-40 bg-[#457B9D] rounded-full"></div>
 
       <div className="relative max-w-6xl mx-auto px-6">
@@ -30,9 +30,7 @@ export function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight">
-            Invest with confidence —
-            <br />
-            <span className="text-[#457B9D]">step-by-step and stress-free</span>
+            Making investing approachable for the everyone
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-800 mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
