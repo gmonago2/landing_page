@@ -1,33 +1,52 @@
-import { promises as fs } from 'fs';
-import { resolve } from 'path';
+import { createClient } from '@supabase/supabase-js';
 
-const DB_PATH = resolve(process.cwd(), 'waitlist.json');
+const supabaseUrl = process.env.VITE_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-async function readDb() {
+if (!supabaseUrl || !supabaseServiceKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+export async function insertEmail(email) {
   try {
-    const data = await fs.readFile(DB_PATH, 'utf-8');
-    return JSON.parse(data);
-  } catch (e) {
-    if (e && e.code === 'ENOENT') return { items: [] };
-    throw e;
+    const { data, error } = await supabase
+      .from('waitlist')
+      .insert([{ email, status: 'pending' }])
+      .select();
+
+    if (error) {
+      if (error.code === '23505') {
+        return { ok: false, conflict: true };
+      }
+      console.error('Supabase insert error:', error);
+      return { ok: false, conflict: false };
+    }
+
+    return { ok: true };
+  } catch (err) {
+    console.error('Insert email error:', err);
+    return { ok: false, conflict: false };
   }
 }
 
-async function writeDb(json) {
-  const data = JSON.stringify(json, null, 2);
-  await fs.writeFile(DB_PATH, data, 'utf-8');
-}
-
-export async function insertEmail(email) {
-  const db = await readDb();
-  const exists = db.items.some((x) => x.email === email);
-  if (exists) return { ok: false, conflict: true };
-  db.items.unshift({ email, created_at: new Date().toISOString() });
-  await writeDb(db);
-  return { ok: true };
-}
-
 export async function listEmails(limit = 100) {
-  const db = await readDb();
-  return db.items.slice(0, Math.max(1, Math.min(500, limit)));
+  try {
+    const { data, error } = await supabase
+      .from('waitlist')
+      .select('email, created_at')
+      .order('created_at', { ascending: false })
+      .limit(Math.max(1, Math.min(500, limit)));
+
+    if (error) {
+      console.error('Supabase list error:', error);
+      return [];
+    }
+
+    return data || [];
+  } catch (err) {
+    console.error('List emails error:', err);
+    return [];
+  }
 }
