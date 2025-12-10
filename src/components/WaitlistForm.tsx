@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
-// Supabase removed: form now posts to our local API
 
 export function WaitlistForm() {
   const [email, setEmail] = useState('');
